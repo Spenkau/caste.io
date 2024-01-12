@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +7,16 @@ import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'casteio';
+  title = 'caste';
 
-  constructor() {
+  constructor(private location: Location) {
   }
 
   ngOnInit() {
 
+  }
+
+  back(): void {
+    this.location.back();
   }
 }
