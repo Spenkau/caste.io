@@ -1,1 +1,6 @@
-
+<ul>
+  <li *ngFor="let file of files | async">
+    <p>{{ file.name }}</p>
+    <img [ngSrc]="file.path" alt="file" fill="">
+  </li>
+</ul>

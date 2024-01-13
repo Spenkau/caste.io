@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { Location } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   title = 'caste';
+  isPanelRequired = false;
 
   constructor(private location: Location) {
   }

@@ -1,20 +1,22 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import {Component, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent implements OnInit {
-  @ViewChild('canvas', {static: true}) myCanvas!: ElementRef;
+export class DashboardComponent implements AfterViewInit {
+  @ViewChild('canvas', {static: false}) canvas!: ElementRef;
+  context!: CanvasRenderingContext2D;
+  selectedObject: string = '';
 
-  ngOnInit(): void {
-    const canvas: HTMLCanvasElement = this.myCanvas.nativeElement;
-    const context = canvas.getContext('2d');
+  objects = ['circle', 'square', 'triangle'];
 
-    if (context) {
-      this.#drawRectangle(context);
-    }
+  ngAfterViewInit(): void {
+    // const canvas: HTMLCanvasElement = this.myCanvas.nativeElement;
+    this.context = this.canvas.nativeElement.getContext('2d');
+
+      this.#drawRectangle(this.context);
   }
 
   #drawRectangle(context: CanvasRenderingContext2D) {
