@@ -1,0 +1,19 @@
+<div>
+  <input type="text" placeholder="Search">
+</div>
+<div class="d-flex" style="border: 1px solid black; height: 200px">
+  <ul class="friends-list list-unstyled" style="width: 30%">
+    <app-chat-item *ngFor="let i of [1,2,3,4,5]"></app-chat-item>
+  </ul>
+
+  <div class="chat-content d-flex justify-content-center" style="width: 70%">
+    <ul class="list-unstyled" style="width: 60%;">
+      <li>message</li>
+      <li>message</li>
+      <li>message</li>
+      <li>message</li>
+      <li>message</li>
+    </ul>
+    <input placeholder="Type a message...">
+  </div>
+</div>
